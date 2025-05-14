@@ -64,6 +64,34 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+    /* function         format                          argument */
+
+    // Date & Time
+    {datetime, "📅 %s | ", "%a %d.%m.%Y %H:%M"},
+
+    // Volume
+    {vol_perc, "🔊 %s%% | ", NULL},
+
+    // CPU Usage
+    {cpu_perc, "🧠 CPU %s%% | ", NULL},
+
+    // Memory Usage
+    {ram_perc, "💾 RAM %s%% | ", NULL},
+
+    // Battery (skip if desktop has no battery)
+    // { battery_state,   "🔌 %s ",                     "BAT0" },
+    // { battery_perc,    "%s%% | ",                    "BAT0" },
+    // { battery_remaining, "⏳ %s | ",                 "BAT0" },
+
+    // Temperature
+    {temp, "🌡️ %s°C | ", "/sys/class/thermal/thermal_zone0/temp"},
+
+    // Network (Wired)
+    {ipv4, "🌍 %s | ", "enp34s0"},
+    {netspeed_rx, "⬇️ %s | ", "enp34s0"},
+    {netspeed_tx, "⬆️ %s | ", "enp34s0"},
+
+    // Disk Usage
+    {disk_used, "💽 %sG used | ", "/"},
+    {disk_perc, "💾 %s%% used", "/"},
 };
