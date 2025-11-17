@@ -64,10 +64,12 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-    /* function         format                          argument */
+	/* function         format                          argument */
 
-    // Network (Wired) – shown first
-    {netspeed_rx, "⬇️ %s | ", "enp34s0"},
+	{run_command, "%s ", "cat /tmp/recordingicon 2>/dev/null"},
+
+	// Network (Wired) – shown first
+	{netspeed_rx, "⬇️ %s | ", "enp34s0"},
     {netspeed_tx, "⬆️ %s | ", "enp34s0"},
     {ipv4, "🌍 %s | ", "enp34s0"},
 
